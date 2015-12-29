@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
+	before_action :find_post, only: [:show, :edit, :update, :destroy]
+
   def index
-  	@post = Post.all
+  	@post = Post.all.order("created_at DESC")
   end
 
   def new
@@ -10,26 +12,28 @@ class PostsController < ApplicationController
   def create
   	@post = Post.new(post_params)
   	@post.save
+
+  	flash[:notice] = "Your post was successfully created!"
   	redirect_to post_path(@post)
   end
 
   def edit
-  	  @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
     @post.update(post_params)
+
+    flash[:notice] = "Your post was successfully updated!"
     redirect_to post_path(@post)
   end
 
   def show
-  	@post = Post.find(params[:id])
   end
 
   def destroy
-  	@post = Post.find(params[:id])
   	@post.destroy
+
+  	flash[:notice] = "Your post was deleted"
   	redirect_to posts_path
   end
 
@@ -38,6 +42,10 @@ class PostsController < ApplicationController
 	# Using a private method to encapsulate the permissible parameters is
 	def post_params
 		params.require(:post).permit(:title, :body)
+	end
+
+	def find_post
+		@post = Post.find(params[:id])
 	end
 
 end
