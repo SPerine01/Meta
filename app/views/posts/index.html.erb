@@ -1,14 +1,19 @@
 <h1>Your Posts</h1>
 
+<%= link_to "New Blog Post", new_post_path %>
+
 <% @post.each do |post| %>
 	
-	<p>
+	<h2>
 		<%= link_to post.title, post_path(post) %>
+	</h2>
+
+	<p>
+		<%= link_to "Edit", edit_post_path(post) %> |
 	</p>
 
-<!-- 	<p>
-		<%= post.body %> -->
-
+	<p>
+		<%= link_to "Delete", post_path(post), method: :delete, data: { confirm: "Are you sure?" } %>
 	</p>
 <% end %>
 

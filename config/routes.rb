@@ -3,12 +3,13 @@ Rails.application.routes.draw do
   get "/pages/about" => "pages#about", as: :about
   get "/pages/contact" => "pages#contact", as: :contact
 
-  get "/posts" => "posts#index"
+  get "/posts" => "posts#index", as: :posts
   post "/posts" => "posts#create"
 
   get "/post/:id" => "posts#show", as: :post
   patch "post/:id" => "posts#update"
-  get "/posts/new" => "posts#new"
+  get "/posts/new" => "posts#new", as: :new_post
+  delete "post/:id" => "posts#destroy"
 
   get "/post/:id/edit" => "posts#edit", as: :edit_post
   # The priority is based upon order of creation: first created -> highest priority.
