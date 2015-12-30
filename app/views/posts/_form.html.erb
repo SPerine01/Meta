@@ -1,5 +1,14 @@
 
 <div class="form">
+	<% if @post.errors.any? %>
+
+		<ul style="list-style: none">
+			<% @post.errors.full_messages.each do |message| %>
+			<li> <%= message %> </li>
+		<% end %>
+		</ul>
+	<% end %>
+
 	<%= form_for @post do |f| %>
 		<%= f.label :title %> <br>
 		<%= f.text_field :title %> <br> <br>
