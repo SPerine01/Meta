@@ -144,6 +144,14 @@ hr.small {
   -o-background-size: cover;
   margin-bottom: 50px;
 }
+.header1 {
+  background-image: url("brooklyn.jpg") !important;
+}
+
+.header2 {
+  background-image: url("post-bg.jpeg") !important;
+}
+
 .intro-header .site-heading,
 .intro-header .post-heading,
 .intro-header .page-heading {

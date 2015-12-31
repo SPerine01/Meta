@@ -1,42 +1,55 @@
-<h1>Your Post</h1>
+    <header class="intro-header header2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1> <%= @post.title %> </h1>
+                        <span class="meta"><%= link_to "Edit", edit_post_path(@post) %> | <%= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?" } %> </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <article>
+    <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+                	<p>
+                		<%= @post.body %>
+
+                		<hr>
+							<h2>All Comments</h2>
+                		<hr>
+
+                		<%= render @post.comments.order("created_at DESC") %>
+                	</p>
+                </div>
+            </div>
+    </div>
+    </article>
+
+		<div class="blog_posts">
+
+			<p>
+				<%= link_to "Back", posts_path %>
+			</p>
+		</div>
+
+		<div class="comments">
+
+			
 
 
-<div class="blog_posts">
-	<p>
-		<%= @post.title %>
-	</p>
+			<h3>Leave a Comment</h3>
+			<%= form_for [@post, @post.comments.build] do |f| %>
+				<%= f.label :name %> <br>
+				<%= f.text_field :name %> <br>
 
-	<p>
-		<%= @post.body %>
-	</p>
+				<%= f.label :body %> <br>
+				<%= f.text_area :body %> <br>
 
-	<p>
-		<%= link_to "Edit", edit_post_path(@post) %> |
-	</p>
-
-	<p>
-		<%= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?" } %>
-	</p>
-
-	<p>
-		<%= link_to "Back", posts_path %>
-	</p>
-</div>
-
-<div class="comments">
-
-	<h2>All Comments</h2>
-
-	<%= render @post.comments.order("created_at DESC") %>
-
-	<h2>Leave a Comment</h2>
-	<%= form_for [@post, @post.comments.build] do |f| %>
-		<%= f.label :name %> <br>
-		<%= f.text_field :name %> <br>
-
-		<%= f.label :body %> <br>
-		<%= f.text_area :body %> <br>
-
-		<%= f.submit %> <br>
-	<% end %>
-</div>
+				<%= f.submit %> <br>
+			<% end %>
+		</div>
