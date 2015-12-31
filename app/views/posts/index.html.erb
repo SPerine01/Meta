@@ -1,3 +1,48 @@
+<!-- Page Header -->
+    <header class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>Clean Blog</h1>
+                        <hr class="small">
+                        <span class="subheading">A Clean Blog Theme by Start Bootstrap</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+            	<% @posts.each do |post| %>
+            	<div class="post-preview">
+                    <a href="post.html">
+            	       <h2 class="post-title">
+                            Man must explore, and this is exploration at its greatest
+                        </h2>
+                      
+                    </a>
+                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>
+                </div>
+                <hr>
+                <div class="post-preview">
+                    <a href="post.html">
+                        <h2 class="post-title">
+                            <%= link_to post.title, post_path(post) %>
+                        </h2>
+                    </a>
+                    <p class="post-meta"><%= link_to "Edit", edit_post_path(post) %> | <%= link_to "Delete", post_path(post), method: :delete, data: { confirm: "Are you sure?" } %> </p>
+                </div>
+                <hr>
+                <% end %>
+
+            </div>
+        </div>
+    </div>
+
 <h1>Your Posts</h1>
 
 <%= link_to "New Blog Post", new_post_path %>

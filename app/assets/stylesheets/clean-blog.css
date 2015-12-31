@@ -133,6 +133,8 @@ hr.small {
   }
 }
 .intro-header {
+  background-image: url("brooklyn.jpg") !important;
+/*  width: 872px;*/
   background-color: #808080;
   background: no-repeat center center;
   background-attachment: scroll;
