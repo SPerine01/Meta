@@ -156,6 +156,10 @@ hr.small {
   background-image: url("contact-bg.jpg") !important;
 }
 
+.header4 {
+  background-image: url("about-page.jpg") !important;
+}
+
 .intro-header .site-heading,
 .intro-header .post-heading,
 .intro-header .page-heading {
