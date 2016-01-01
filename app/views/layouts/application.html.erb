@@ -22,11 +22,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">meta</a>
+
+                <%= link_to "meta", root_path, class: "navbar-brand" %>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
+                <!-- 	<li>
+                        < %= link_to "About", pages_about_path %>
+                    </li> -->
+
                     <li>
                         <%= link_to "Create New Post", new_post_path %>
                     </li>

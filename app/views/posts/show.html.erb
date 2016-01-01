@@ -16,15 +16,14 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-                	<p>
                 		<%= @post.body %>
 
-                		<hr>
+                		<% if @post.comments.count > 0 %>
 							<h3>All Comments</h3>
-                		<hr>
+	                		<hr>
 
-                		<%= render @post.comments.order("created_at DESC") %>
-                	</p>
+	                		<%= render @post.comments.order("created_at DESC") %>
+	                		<% end %>
                 </div>
             </div>
     </div>
@@ -33,7 +32,8 @@
 		<div class="blog_posts">
 
 			<p>
-				<%= link_to "Back", posts_path %>
+				<span class="meta"><%= link_to "Back", posts_path %> </span>
+
 			</p>
 		</div>
 

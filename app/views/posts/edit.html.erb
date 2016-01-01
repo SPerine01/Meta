@@ -1,16 +1,26 @@
-<h1>Edit Your Blog Post</h1>
+    <header class="intro-header header2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1> <%= @post.title %> </h1>
+                        <span class="meta"><%= link_to "Back", post_path(@post) %> | <%= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?" } %> </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-<div class="form">
-	<%= form_for @post do |f| %>
-		<%= f.label :title %> <br>
-		<%= f.text_field :title %> <br>
+<article>
+    <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-		<%= f.label :body %> <br>
-		<%= f.text_area :body %> <br> 
+                	<p>
+	               		<%= render "form" %>
+                	</p>
+                </div>
+            </div>
+    </div>
+    </article>
 
-		<%= f.submit %>
-	<% end %>
-
-	<%= link_to "Back", posts_path %>
-
-</div>

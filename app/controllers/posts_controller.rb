@@ -26,9 +26,9 @@ class PostsController < ApplicationController
     if @post.update(post_params)
 	    flash[:notice] = "Your post was successfully updated!"
 	    redirect_to post_path(@post)
-	else
-		render :edit
-	end
+	  else
+		  render :edit
+	  end
   end
 
   def show
@@ -43,7 +43,7 @@ class PostsController < ApplicationController
 
 
   private
-	# Using a private method to encapsulate the permissible parameters is
+	# Using a private method to encapsulate the permissible parameters 
 	def post_params
 		params.require(:post).permit(:title, :body)
 	end
